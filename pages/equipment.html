@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUIPMENT BAY // WAYNE_TERM</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="crt-overlay"></div> 
+  <div class="grid-lines"></div>
+  
+  <div class="status-bar">
+    <div class="status-item">
+      <span class="label">LOCATION:</span>
+      <span class="value" id="location">BATCAVE</span>
+    </div>
+    <div class="status-item">
+      <span class="label">TIME:</span>
+      <span class="value" id="clock">00:00:00</span>
+    </div>
+    <div class="status-item">
+      <span class="label">MAINTENANCE:</span>
+      <span class="value" style="color: #f1c40f;">1 SCHEDULED</span>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">WAYNE_TERMINAL</div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">DASHBOARD</a></li>
+        <li><a href="threats.html">THREATS</a></li>
+        <li><a href="missions.html">MISSIONS</a></li>
+        <li><a href="equipment.html" class="active">EQUIPMENT</a></li>
+        <li><a href="batcave.html">BATCAVE</a></li>
+        <li><a href="archives.html">ARCHIVES</a></li>
+      </ul>
+      <div class="nav-toggle" onclick="toggleNav()">☰</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+        <h1>EQUIPMENT_BAY</h1>
+        <p>Arsenal Status and Technical Specifications | Last Maintenance: 6 hours ago</p>
+    </header>
+
+    <!-- Equipment Categories -->
+    <div class="equipment-tabs">
+      <button class="tab-btn active" onclick="showCategory('vehicles')">VEHICLES</button>
+      <button class="tab-btn" onclick="showCategory('gear')">TACTICAL GEAR</button>
+      <button class="tab-btn" onclick="showCategory('weapons')">WEAPONS</button>
+      <button class="tab-btn" onclick="showCategory('tech')">TECHNOLOGY</button>
+    </div>
+
+    <!-- VEHICLES SECTION -->
+    <div id="vehicles" class="equipment-category active">
+      <h2 class="section-title">
+        <span class="title-line"></span>
+        VEHICLE FLEET
+        <span class="title-line"></span>
+      </h2>
+
+      <div class="equipment-detail-grid">
+        <!-- Batmobile -->
+        <div class="equipment-detail-card">
+          <div class="equipment-header">
+            <h3>🦇 BATMOBILE</h3>
+            <span class="status-badge operational">100% OPERATIONAL</span>
+          </div>
+          <div class="equipment-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.redd.it/94wj66wmoyha1.jpg'); background-size: cover; background-position: center;"></div>
+          
+          <div class="equipment-specs">
+            <h4>TECHNICAL SPECIFICATIONS</h4>
+            <div class="spec-grid">
+              <div class="spec-item">
+                <span class="spec-label">Top Speed:</span>
+                <span class="spec-value">230 MPH</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Engine:</span>
+                <span class="spec-value">V12 Twin Turbo</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Armor Rating:</span>
+                <span class="spec-value">Level IV Ballistic</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Fuel Type:</span>
+                <span class="spec-value">Hybrid Jet/Electric</span>
+              </div>
+            </div>
+
+            <h4>COMBAT SYSTEMS</h4>
+            <ul class="feature-list">
+              <li>✓ 60mm Cannon (Non-Lethal Rounds)</li>
+              <li>✓ EMP Generator</li>
+              <li>✓ Smoke Screen Deployment</li>
+              <li>✓ Oil Slick Dispenser</li>
+              <li>✓ Grappling Hook Launcher</li>
+              <li>✓ Afterburner Jet Propulsion</li>
+            </ul>
+
+            <h4>DEFENSIVE SYSTEMS</h4>
+            <ul class="feature-list">
+              <li>✓ Reactive Armor Plating</li>
+              <li>✓ Anti-Lock Braking with Drift Mode</li>
+              <li>✓ Run-Flat Tires</li>
+              <li>✓ 360° Surveillance Cameras</li>
+              <li>✓ Chemical Filters</li>
+            </ul>
+
+            <div class="maintenance-schedule">
+              <h4>MAINTENANCE LOG</h4>
+              <p>Last Service: 6 hours ago</p>
+              <p>Next Service: 48 hours</p>
+              <p>Status: All systems nominal</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Batwing -->
+        <div class="equipment-detail-card">
+          <div class="equipment-header">
+            <h3>✈️ BATWING</h3>
+            <span class="status-badge maintenance">85% - MAINTENANCE REQUIRED</span>
+          </div>
+          <div class="equipment-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://bit.ly/4ru8yzr'); background-size: cover; background-position: center;"></div>
+          
+          <div class="equipment-specs">
+            <h4>TECHNICAL SPECIFICATIONS</h4>
+            <div class="spec-grid">
+              <div class="spec-item">
+                <span class="spec-label">Max Speed:</span>
+                <span class="spec-value">Mach 2.5</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Range:</span>
+                <span class="spec-value">2,500 miles</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Ceiling:</span>
+                <span class="spec-value">60,000 ft</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Stealth:</span>
+                <span class="spec-value">Radar Invisible</span>
+              </div>
+            </div>
+
+            <h4>WEAPON SYSTEMS</h4>
+            <ul class="feature-list">
+              <li>✓ Air-to-Ground Missiles (Non-Lethal)</li>
+              <li>✓ Machine Gun Turrets</li>
+              <li>✓ Cluster Bomb Bay</li>
+              <li>✓ EMP Pulse Generator</li>
+            </ul>
+
+            <h4>AVIONICS</h4>
+            <ul class="feature-list">
+              <li>✓ VTOL Capability</li>
+              <li>✓ Auto-Pilot AI</li>
+              <li>✓ Cloaking Technology</li>
+              <li>✓ Advanced Targeting System</li>
+              <li>⚠️ Navigation Computer (Needs Calibration)</li>
+            </ul>
+
+            <div class="maintenance-schedule alert">
+              <h4>MAINTENANCE REQUIRED</h4>
+              <p>Issue: Navigation computer recalibration</p>
+              <p>Priority: Medium</p>
+              <p>Scheduled: Tonight 02:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Batcycle -->
+        <div class="equipment-detail-card">
+          <div class="equipment-header">
+            <h3>🏍️ BATCYCLE</h3>
+            <span class="status-badge operational">100% OPERATIONAL</span>
+          </div>
+          <div class="equipment-image" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://bit.ly/4bptumk'); background-size: cover; background-position: center;"></div>
+          
+          <div class="equipment-specs">
+            <h4>TECHNICAL SPECIFICATIONS</h4>
+            <div class="spec-grid">
+              <div class="spec-item">
+                <span class="spec-label">Top Speed:</span>
+                <span class="spec-value">180 MPH</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Engine:</span>
+                <span class="spec-value">1200cc Electric</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Weight:</span>
+                <span class="spec-value">485 lbs</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Range:</span>
+                <span class="spec-value">300 miles</span>
+              </div>
+            </div>
+
+            <h4>FEATURES</h4>
+            <ul class="feature-list">
+              <li>✓ Rapid Deploy Grappling Hook</li>
+              <li>✓ EMP Shielded Electronics</li>
+              <li>✓ Self-Balancing Gyroscope</li>
+              <li>✓ Remote Operation Mode</li>
+              <li>✓ Stealth Mode (Silent Running)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TACTICAL GEAR SECTION -->
+    <div id="gear" class="equipment-category">
+      <h2 class="section-title">
+        <span class="title-line"></span>
+        TACTICAL GEAR
+        <span class="title-line"></span>
+      </h2>
+
+      <div class="gear-grid">
+        <div class="gear-card">
+          <div class="gear-icon">🛡️</div>
+          <h3>BATSUIT MK. VIII</h3>
+          <div class="gear-status">
+            <div class="status-bar-container">
+              <div class="status-bar-fill" style="width: 92%"></div>
+            </div>
+            <span>92% Integrity</span>
+          </div>
+          <ul class="gear-features">
+            <li>Kevlar-Titanium Weave Armor</li>
+            <li>Ballistic Protection: Level IIIA</li>
+            <li>Temperature Regulation System</li>
+            <li>Trauma Plates (Chest/Back)</li>
+            <li>Electromagnetic Hardening</li>
+          </ul>
+          <p class="gear-note">Minor damage to left shoulder plate - repair scheduled</p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon">👓</div>
+          <h3>COWL SYSTEMS</h3>
+          <div class="gear-status">
+            <div class="status-bar-container">
+              <div class="status-bar-fill" style="width: 100%"></div>
+            </div>
+            <span>100% Operational</span>
+          </div>
+          <ul class="gear-features">
+            <li>Night Vision Enhancement</li>
+            <li>Thermal Imaging</li>
+            <li>Audio Amplification</li>
+            <li>Detective Mode Scanner</li>
+            <li>AR Heads-Up Display</li>
+            <li>Encrypted Communications</li>
+          </ul>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon">🧤</div>
+          <h3>GAUNTLETS</h3>
+          <div class="gear-status">
+            <div class="status-bar-container">
+              <div class="status-bar-fill" style="width: 100%"></div>
+            </div>
+            <span>100% Operational</span>
+          </div>
+          <ul class="gear-features">
+            <li>Reinforced Strike Plates</li>
+            <li>Integrated Batarang Launcher</li>
+            <li>Lockpick Tools</li>
+            <li>Electrical Discharge Capability</li>
+            <li>Computer Interface Ports</li>
+          </ul>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon">👢</div>
+          <h3>BOOTS</h3>
+          <div class="gear-status">
+            <div class="status-bar-container">
+              <div class="status-bar-fill" style="width: 100%"></div>
+            </div>
+            <span>100% Operational</span>
+          </div>
+          <ul class="gear-features">
+            <li>Magnetic Climbing Soles</li>
+            <li>Reinforced Steel Toe</li>
+            <li>Silent Movement Tech</li>
+            <li>Spring-Loaded Heel Spikes</li>
+            <li>Shock Absorption System</li>
+          </ul>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon">🎒</div>
+          <h3>UTILITY BELT</h3>
+          <div class="gear-status">
+            <div class="status-bar-container">
+              <div class="status-bar-fill" style="width: 100%"></div>
+            </div>
+            <span>Fully Stocked</span>
+          </div>
+          <ul class="gear-features">
+            <li>20 Compartment Modular System</li>
+            <li>Batarangs (Standard/Explosive)</li>
+            <li>Smoke Pellets</li>
+            <li>Rebreather</li>
+            <li>Medical Kit</li>
+            <li>Tracking Devices</li>
+            <li>Lock Picks & Cutting Tools</li>
+            <li>Chemical Neutralizers</li>
+          </ul>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon">🧥</div>
+          <h3>CAPE</h3>
+          <div class="gear-status">
+            <div class="status-bar-container">
+              <div class="status-bar-fill" style="width: 100%"></div>
+            </div>
+            <span>100% Operational</span>
+          </div>
+          <ul class="gear-features">
+            <li>Memory Cloth Material</li>
+            <li>Gliding Capability</li>
+            <li>Fireproof Coating</li>
+            <li>Bulletproof Weave</li>
+            <li>Quick Release Mechanism</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEAPONS SECTION -->
+    <div id="weapons" class="equipment-category">
+      <h2 class="section-title">
+        <span class="title-line"></span>
+        WEAPONS ARSENAL
+        <span class="title-line"></span>
+      </h2>
+
+      <div class="weapons-grid">
+        <div class="weapon-card">
+          <h3>💥 BATARANGS</h3>
+          <div class="weapon-stock">
+            <span>Stock: 78/100</span>
+            <div class="stock-bar">
+              <div class="stock-fill" style="width: 78%"></div>
+            </div>
+          </div>
+          <p><strong>Variants:</strong></p>
+          <ul>
+            <li>Standard (28)</li>
+            <li>Explosive (15)</li>
+            <li>Electric (12)</li>
+            <li>Remote Control (10)</li>
+            <li>Tracking (13)</li>
+          </ul>
+        </div>
+
+        <div class="weapon-card">
+          <h3>⚡ GRAPNEL GUN</h3>
+          <div class="weapon-stock">
+            <span>Status: 100% Operational</span>
+            <div class="stock-bar">
+              <div class="stock-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          <p><strong>Specifications:</strong></p>
+          <ul>
+            <li>Range: 150 meters</li>
+            <li>Load Capacity: 450 lbs</li>
+            <li>Cable Type: Titanium weave</li>
+            <li>Retraction Speed: 50 ft/sec</li>
+          </ul>
+        </div>
+
+        <div class="weapon-card">
+          <h3>💣 EXPLOSIVE DEVICES</h3>
+          <div class="weapon-stock">
+            <span>Stock: 45 Units</span>
+            <div class="stock-bar">
+              <div class="stock-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <p><strong>Inventory:</strong></p>
+          <ul>
+            <li>Smoke Pellets (20)</li>
+            <li>Concussion Grenades (10)</li>
+            <li>EMP Charges (8)</li>
+            <li>Breaching Charges (7)</li>
+          </ul>
+        </div>
+
+        <div class="weapon-card">
+          <h3>🔫 RESTRAINT DEVICES</h3>
+          <div class="weapon-stock">
+            <span>Stock: Full</span>
+            <div class="stock-bar">
+              <div class="stock-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          <p><strong>Equipment:</strong></p>
+          <ul>
+            <li>Zip-Cuffs (50)</li>
+            <li>Bola Launcher (2)</li>
+            <li>Net Gun (1)</li>
+            <li>Taser Rounds (30)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNOLOGY SECTION -->
+    <div id="tech" class="equipment-category">
+      <h2 class="section-title">
+        <span class="title-line"></span>
+        ADVANCED TECHNOLOGY
+        <span class="title-line"></span>
+      </h2>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>🖥️ BATCOMPUTER</h3>
+          <p>Quantum processing supercomputer with AI assistance. Capable of processing petabytes of data for forensic analysis, pattern recognition, and tactical simulation.</p>
+          <div class="tech-stats">
+            <span>Processing Power: 500 Petaflops</span>
+            <span>Uptime: 99.99%</span>
+            <span>Security: Military Grade</span>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <h3>🛰️ SATELLITE NETWORK</h3>
+          <p>12 WayneTech satellites providing global surveillance coverage, encrypted communications, and GPS override capability.</p>
+          <div class="tech-stats">
+            <span>Coverage: Global</span>
+            <span>Resolution: 15cm</span>
+            <span>Latency: <1ms</span>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <h3>🔍 DETECTIVE MODE</h3>
+          <p>Advanced AR system integrating forensic scanning, structural analysis, and threat assessment in real-time overlay.</p>
+          <div class="tech-stats">
+            <span>Scan Range: 50 meters</span>
+            <span>Evidence Types: 47</span>
+            <span>Database: 10M+ records</span>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <h3>📡 COMMUNICATIONS HUB</h3>
+          <p>Military-grade encrypted communications system with GCPD integration and emergency broadcast override.</p>
+          <div class="tech-stats">
+            <span>Encryption: 2048-bit</span>
+            <span>Range: Unlimited (Satellite)</span>
+            <span>Channels: 50+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <div class="scanline"></div>
+        <p>WAYNETECH OS v9.4 // EQUIPMENT MANAGEMENT SYSTEM // Access Level: ALPHA-1</p>
+        <p class="footer-warning">⚠️ EQUIPMENT REQUISITION REQUIRES AUTHORIZATION ⚠️</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/equipment.js"></script>
+</body>
+</html>

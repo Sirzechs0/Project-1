@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THREAT DATABASE // WAYNE_TERM</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="crt-overlay"></div> 
+  <div class="grid-lines"></div>
+  
+  <div class="status-bar">
+    <div class="status-item">
+      <span class="label">LOCATION:</span>
+      <span class="value" id="location">GOTHAM_CITY</span>
+    </div>
+    <div class="status-item">
+      <span class="label">TIME:</span>
+      <span class="value" id="clock">00:00:00</span>
+    </div>
+    <div class="status-item">
+      <span class="label">ALERTS:</span>
+      <span class="value alert-blink">3 ACTIVE</span>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">WAYNE_TERMINAL</div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">DASHBOARD</a></li>
+        <li><a href="threats.html" class="active">THREATS</a></li>
+        <li><a href="missions.html">MISSIONS</a></li>
+        <li><a href="equipment.html">EQUIPMENT</a></li>
+        <li><a href="batcave.html">BATCAVE</a></li>
+        <li><a href="archives.html">ARCHIVES</a></li>
+      </ul>
+      <div class="nav-toggle" onclick="toggleNav()">☰</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+        <h1>THREAT_DATABASE</h1>
+        <p>Comprehensive profiles of known adversaries | Last Updated: 2024.01.31 23:47</p>
+    </header>
+
+    <!-- THREAT LEVEL FILTER -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterThreats('all')">ALL THREATS</button>
+      <button class="filter-btn" onclick="filterThreats('critical')">CRITICAL</button>
+      <button class="filter-btn" onclick="filterThreats('high')">HIGH</button>
+      <button class="filter-btn" onclick="filterThreats('moderate')">MODERATE</button>
+      <button class="filter-btn" onclick="filterThreats('contained')">CONTAINED</button>
+    </div>
+
+    <!-- THREAT CARDS -->
+    <div class="threat-grid">
+      <!-- JOKER -->
+      <div class="threat-card critical" data-threat="critical" onclick="openThreatModal('joker')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url('https://images5.alphacoders.com/130/thumb-1920-1309924.png')"></div>
+          <div class="threat-badge critical-badge">CRITICAL</div>
+        </div>
+        <div class="threat-info">
+          <h3>THE JOKER</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> UNKNOWN</span>
+            <span><strong>Status:</strong> <span class="status-wanted">AT LARGE</span></span>
+          </div>
+          <p class="threat-summary">Psychopathic criminal mastermind with expertise in chemical warfare and psychological manipulation. Unpredictable behavior pattern. Extreme danger to civilian population.</p>
+          <div class="threat-tags">
+            <span class="tag">CHEMICAL WARFARE</span>
+            <span class="tag">MASS PSYCHOLOGY</span>
+            <span class="tag">UNPREDICTABLE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANE -->
+      <div class="threat-card high" data-threat="high" onclick="openThreatModal('bane')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url('https://images6.alphacoders.com/892/thumb-1920-892810.jpg')"></div>
+          <div class="threat-badge high-badge">HIGH</div>
+        </div>
+        <div class="threat-info">
+          <h3>BANE</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> UNKNOWN</span>
+            <span><strong>Status:</strong> <span class="status-detained">DETAINED</span></span>
+          </div>
+          <p class="threat-summary">Enhanced human with superhuman strength via Venom compound. Tactical genius and strategic mastermind. Previously broke Batman's back. Currently detained at Blackgate Penitentiary.</p>
+          <div class="threat-tags">
+            <span class="tag">ENHANCED STRENGTH</span>
+            <span class="tag">TACTICAL GENIUS</span>
+            <span class="tag">VENOM DEPENDENCY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PENGUIN -->
+      <div class="threat-card high" data-threat="high" onclick="openThreatModal('penguin')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url('https://picfiles.alphacoders.com/340/thumb-1920-340875.jpg')"></div>
+          <div class="threat-badge high-badge">HIGH</div>
+        </div>
+        <div class="threat-info">
+          <h3>THE PENGUIN</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> Oswald Cobblepot</span>
+            <span><strong>Status:</strong> <span class="status-wanted">AT LARGE</span></span>
+          </div>
+          <p class="threat-summary">Gotham's premier crime lord and arms dealer. Operates extensive criminal network through Iceberg Lounge. Highly intelligent with vast financial resources and political connections.</p>
+          <div class="threat-tags">
+            <span class="tag">ORGANIZED CRIME</span>
+            <span class="tag">WEAPONS DEALER</span>
+            <span class="tag">POLITICAL INFLUENCE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATWOMAN -->
+      <div class="threat-card moderate" data-threat="moderate" onclick="openThreatModal('catwoman')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url('https://images8.alphacoders.com/136/thumb-1920-1364320.jpeg')"></div>
+          <div class="threat-badge moderate-badge">MODERATE</div>
+        </div>
+        <div class="threat-info">
+          <h3>CATWOMAN</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> Selina Kyle</span>
+            <span><strong>Status:</strong> <span class="status-neutral">NEUTRAL</span></span>
+          </div>
+          <p class="threat-summary">Expert cat burglar and acrobat. Operates with personal moral code, occasionally assisting Batman. Master of stealth and hand-to-hand combat. Known for high-value heists targeting corrupt elite.</p>
+          <div class="threat-tags">
+            <span class="tag">MASTER THIEF</span>
+            <span class="tag">ACROBATICS</span>
+            <span class="tag">ANTI-HERO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCARECROW -->
+      <div class="threat-card critical" data-threat="critical" onclick="openThreatModal('scarecrow')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url('https://static0.cbrimages.com/wordpress/wp-content/uploads/2017/06/scarecrow-dc-comics-gotham-batman-header.jpg?q=50&fit=crop&w=1600&h=900&dpr=1.5')"></div>
+          <div class="threat-badge critical-badge">CRITICAL</div>
+        </div>
+        <div class="threat-info">
+          <h3>SCARECROW</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> Dr. Jonathan Crane</span>
+            <span><strong>Status:</strong> <span class="status-detained">ARKHAM</span></span>
+          </div>
+          <p class="threat-summary">Former psychiatrist specializing in fear toxins. Uses hallucinogenic compounds to weaponize victims' deepest fears. Brilliant chemist with extensive knowledge of human psychology.</p>
+          <div class="threat-tags">
+            <span class="tag">FEAR TOXIN</span>
+            <span class="tag">PSYCHOLOGIST</span>
+            <span class="tag">CHEMIST</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIDDLER -->
+      <div class="threat-card high" data-threat="high" onclick="openThreatModal('riddler')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url('https://cdn.mos.cms.futurecdn.net/v6hegBS6dpoD79dNHhE42n-650-80.jpg.webp')"></div>
+          <div class="threat-badge high-badge">HIGH</div>
+        </div>
+        <div class="threat-info">
+          <h3>THE RIDDLER</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> Edward Nygma</span>
+            <span><strong>Status:</strong> <span class="status-detained">ARKHAM</span></span>
+          </div>
+          <p class="threat-summary">Genius-level intellect with obsessive-compulsive need to leave riddles and puzzles. Expert in engineering and computer systems. Uses elaborate death traps and city-wide puzzle schemes.</p>
+          <div class="threat-tags">
+            <span class="tag">GENIUS INTELLECT</span>
+            <span class="tag">DEATH TRAPS</span>
+            <span class="tag">HACKER</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TWO-FACE -->
+      <div class="threat-card high" data-threat="high" onclick="openThreatModal('twoface')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2021/08/two-face-standing-coins-featured.jpg?q=50&fit=crop&w=1008&h=693&dpr=1.5')"></div>
+          <div class="threat-badge high-badge">HIGH</div>
+        </div>
+        <div class="threat-info">
+          <h3>TWO-FACE</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> Harvey Dent</span>
+            <span><strong>Status:</strong> <span class="status-wanted">AT LARGE</span></span>
+          </div>
+          <p class="threat-summary">Former District Attorney with split personality disorder. Makes all decisions via coin flip. Extensive legal knowledge and criminal network. Obsessed with duality and chance.</p>
+          <div class="threat-tags">
+            <span class="tag">SPLIT PERSONALITY</span>
+            <span class="tag">CRIME BOSS</span>
+            <span class="tag">LEGAL EXPERT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POISON IVY -->
+      <div class="threat-card moderate" data-threat="moderate" onclick="openThreatModal('ivy')">
+        <div class="threat-header">
+          <div class="threat-image" style="background-image: url(https://c4.wallpaperflare.com/wallpaper/505/725/105/batman-poison-ivy-dc-comics-superhero-costumes-hd-wallpaper-preview.jpg)"></div>
+          <div class="threat-badge moderate-badge">MODERATE</div>
+        </div>
+        <div class="threat-info">
+          <h3>POISON IVY</h3>
+          <div class="threat-meta">
+            <span><strong>ID:</strong> Dr. Pamela Isley</span>
+            <span><strong>Status:</strong> <span class="status-detained">ARKHAM</span></span>
+          </div>
+          <p class="threat-summary">Eco-terrorist with control over plant life and immunity to toxins. Can produce pheromones for mind control. Brilliant botanist driven by environmental extremism.</p>
+          <div class="threat-tags">
+            <span class="tag">PLANT CONTROL</span>
+            <span class="tag">TOXIN IMMUNITY</span>
+            <span class="tag">ECO-TERRORIST</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <div class="scanline"></div>
+        <p>WAYNETECH OS v9.4 // THREAT DATABASE // Access Level: ALPHA-1</p>
+        <p class="footer-warning">⚠️ CLASSIFIED INFORMATION - AUTHORIZED PERSONNEL ONLY ⚠️</p>
+    </footer>
+  </div>
+
+  <!-- Threat Detail Modal -->
+  <div id="threatModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeThreatModal()">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/threats.js"></script>
+</body>
+</html>

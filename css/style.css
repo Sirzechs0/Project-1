@@ -1,0 +1,1666 @@
+/* --- RESET & BASICS --- */
+:root {
+  --bat-yellow: #f1c40f;
+  --bat-dark: #05070a;
+  --tech-blue: #00f0ff;
+  --success-green: #00ff41;
+  --danger-red: #ff3333;
+  --warning-orange: #ff9500;
+  --text-glow: 0 0 10px rgba(241, 196, 15, 0.5);
+  --card-glow: 0 0 20px rgba(241, 196, 15, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: var(--bat-dark);
+  font-family: 'Orbitron', sans-serif;
+  color: #e0e0e0;
+  cursor: crosshair;
+}
+
+/* --- TOP STATUS BAR --- */
+.status-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(5, 7, 10, 0.95);
+  border-bottom: 2px solid var(--bat-yellow);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.status-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-item .label {
+  color: var(--bat-yellow);
+  font-weight: bold;
+}
+
+.status-item .value {
+  color: var(--success-green);
+}
+
+.alert-blink {
+  animation: alert-pulse 1.5s ease-in-out infinite;
+  color: var(--danger-red) !important;
+  font-weight: bold;
+}
+
+@keyframes alert-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --- BACKGROUND TECH EFFECTS --- */
+.container {
+  min-height: 100vh;
+  padding: 80px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at center, #1a1c29 0%, #000 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.grid-lines {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.crt-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* --- HEADER --- */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    z-index: 5;
+    text-transform: uppercase;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #fff;
+    letter-spacing: 5px;
+    text-shadow: var(--text-glow);
+    position: relative;
+}
+
+header h1 span { color: var(--bat-yellow); }
+
+.blink { 
+  animation: blinker 2s linear infinite; 
+  color: var(--success-green);
+}
+
+@keyframes blinker { 50% { opacity: 0; } }
+
+header p {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--bat-yellow);
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin: 10px 0 0 0;
+}
+
+/* --- STATS DASHBOARD --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 50px;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(241, 196, 15, 0.05), rgba(0, 240, 255, 0.02));
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  padding: 25px;
+  text-align: center;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--bat-yellow), var(--tech-blue));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
+.stat-card:hover::before {
+  opacity: 0.3;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-glow);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  filter: grayscale(100%) brightness(1.5);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+  line-height: 1;
+}
+
+.stat-value .percent {
+  font-size: 1.5rem;
+}
+
+.stat-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- SECTION TITLES --- */
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--bat-yellow);
+  text-align: center;
+  margin: 50px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.title-line {
+  height: 2px;
+  flex: 1;
+  max-width: 200px;
+  background: linear-gradient(to right, transparent, var(--bat-yellow), transparent);
+}
+
+/* --- CARDS LAYOUT --- */
+.card-body {
+  width: 100%;
+  max-width: 1400px;
+  height: 60vh;
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+  margin-bottom: 50px;
+}
+
+.card {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  overflow: hidden;
+  filter: grayscale(100%) brightness(0.5) contrast(1.2);
+  clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover {
+  flex: 4;
+  filter: grayscale(0%) brightness(1.1) contrast(1);
+  z-index: 6;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  box-shadow: inset 0 0 0 2px var(--bat-yellow);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card:hover::before { opacity: 1; }
+.card:hover img { transform: scale(1.1); }
+
+/* --- CARD TEXT CONTENT --- */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+  transform: translateY(100%);
+  transition: transform 0.4s 0.1s ease-out;
+  font-family: 'Share Tech Mono', monospace;
+  z-index: 3;
+}
+
+.card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card-content h3 {
+  color: var(--bat-yellow);
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  text-shadow: 0 0 5px black;
+  border-left: 4px solid var(--bat-yellow);
+  padding-left: 10px;
+}
+
+.card-content p {
+  margin: 5px 0;
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.threat-level { 
+  font-weight: bold; 
+  margin-top: 8px;
+}
+
+.level-high { 
+  color: var(--danger-red); 
+  text-shadow: 0 0 5px red; 
+}
+
+.level-mid { 
+  color: var(--warning-orange); 
+}
+
+.abilities {
+  font-size: 0.75rem !important;
+  color: #aaa !important;
+  margin-top: 8px !important;
+}
+
+.status-active { color: var(--success-green); }
+.status-wanted { color: var(--danger-red); }
+.status-neutral { color: var(--warning-orange); }
+
+/* --- MISSION LOGS --- */
+.mission-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 50px 0;
+}
+
+.mission-logs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.log-entry {
+  background: rgba(241, 196, 15, 0.03);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  border-left: 4px solid var(--bat-yellow);
+  padding: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.log-entry:hover {
+  background: rgba(241, 196, 15, 0.08);
+  border-color: var(--bat-yellow);
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.2);
+}
+
+.log-entry.active-mission {
+  border-left-color: var(--danger-red);
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { 
+    border-left-color: var(--danger-red);
+    box-shadow: 0 0 0 rgba(255, 51, 51, 0.4);
+  }
+  50% { 
+    border-left-color: #ff6666;
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.4);
+  }
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  font-family: 'Share Tech Mono', monospace;
+  flex-wrap: wrap;
+}
+
+.log-id {
+  color: var(--bat-yellow);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.log-title {
+  flex: 1;
+  color: #fff;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.log-date {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.log-status {
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.status-complete {
+  background: rgba(0, 255, 65, 0.2);
+  color: var(--success-green);
+  border: 1px solid var(--success-green);
+}
+
+.status-active {
+  background: rgba(255, 51, 51, 0.2);
+  color: var(--danger-red);
+  border: 1px solid var(--danger-red);
+  animation: blinker 2s linear infinite;
+}
+
+.log-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.log-entry.expanded .log-body {
+  max-height: 500px;
+  padding: 20px;
+}
+
+.log-body p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin: 0 0 15px 0;
+}
+
+.log-metrics {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--bat-yellow);
+  padding-top: 15px;
+  border-top: 1px solid rgba(241, 196, 15, 0.2);
+}
+
+.log-metrics span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- EQUIPMENT SECTION --- */
+.equipment-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 50px 0;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.equipment-item {
+  background: rgba(241, 196, 15, 0.03);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  padding: 20px;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  transition: all 0.3s ease;
+}
+
+.equipment-item:hover {
+  background: rgba(241, 196, 15, 0.08);
+  border-color: var(--bat-yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(241, 196, 15, 0.2);
+}
+
+.equipment-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  filter: grayscale(100%) brightness(1.5);
+}
+
+.equipment-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--bat-yellow);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.equipment-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.equipment-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--bat-yellow), var(--success-green));
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+  transition: width 1s ease;
+}
+
+.equipment-status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* --- ANIMATED STAGGER --- */
+.card:nth-child(even) { margin-top: 20px; }
+.card:nth-child(odd) { margin-bottom: 20px; }
+.card:hover { margin: 0; }
+
+/* --- SCANLINE --- */
+.scanline {
+  width: 100%;
+  height: 5px;
+  background: rgba(241, 196, 15, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: scan 6s linear infinite;
+  box-shadow: 0 0 10px var(--bat-yellow);
+  opacity: 0.3;
+  z-index: 9;
+}
+
+@keyframes scan {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+/* --- FOOTER --- */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--bat-yellow);
+  opacity: 0.5;
+  padding: 20px;
+}
+
+.footer-warning {
+  color: var(--danger-red) !important;
+  margin-top: 10px;
+  animation: blinker 3s linear infinite;
+}
+
+/* --- OBJECT POSITIONS --- */
+.card[data-label="THE BATMAN"] img { object-position: 50% 15%; }
+.card[data-label="JOKER"] img { object-position: 50% 10%; }
+.card[data-label="CATWOMAN"] img { object-position: 25% 20%; }
+.card[data-label="BANE"] img { object-position: 32% 15%; }
+.card[data-label="THE PENGUIN"] img { object-position: 50% 10%; }
+
+/* --- NAVIGATION BAR --- */
+.main-nav {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  background: rgba(5, 7, 10, 0.95);
+  border-bottom: 1px solid rgba(241, 196, 15, 0.3);
+  z-index: 999;
+  backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--bat-yellow);
+  text-shadow: var(--text-glow);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.nav-menu li a {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  display: block;
+}
+
+.nav-menu li a:hover {
+  color: var(--bat-yellow);
+  border-color: rgba(241, 196, 15, 0.5);
+  background: rgba(241, 196, 15, 0.05);
+}
+
+.nav-menu li a.active {
+  color: var(--bat-yellow);
+  border-color: var(--bat-yellow);
+  background: rgba(241, 196, 15, 0.1);
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--bat-yellow);
+  cursor: pointer;
+}
+
+/* --- QUICK ACCESS CARDS --- */
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.access-card {
+  background: linear-gradient(135deg, rgba(241, 196, 15, 0.05), rgba(0, 240, 255, 0.02));
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  padding: 30px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  cursor: pointer;
+}
+
+.access-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--bat-yellow);
+  background: rgba(241, 196, 15, 0.1);
+  box-shadow: 0 10px 30px rgba(241, 196, 15, 0.3);
+}
+
+.access-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  filter: grayscale(100%) brightness(1.5);
+}
+
+.access-card h3 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.access-card p {
+  color: #ccc;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.access-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 2rem;
+  color: var(--bat-yellow);
+  transition: transform 0.3s ease;
+}
+
+.access-card:hover .access-arrow {
+  transform: translateX(10px);
+}
+
+/* --- SYSTEM STATUS GRID --- */
+.system-status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.status-module {
+  background: rgba(241, 196, 15, 0.03);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  padding: 25px;
+}
+
+.status-module h3 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.status-row span:first-child {
+  color: #999;
+}
+
+.status-good {
+  color: var(--success-green);
+}
+
+.status-warning {
+  color: var(--warning-orange);
+}
+
+.status-info {
+  color: var(--tech-blue);
+}
+
+/* --- ACTIVITY FEED --- */
+.activity-feed {
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border-left: 2px solid rgba(241, 196, 15, 0.3);
+  margin-bottom: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+  background: rgba(241, 196, 15, 0.05);
+  border-left-color: var(--bat-yellow);
+}
+
+.activity-time {
+  color: var(--tech-blue);
+  min-width: 50px;
+}
+
+.activity-type {
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  min-width: 70px;
+  text-align: center;
+}
+
+.type-alert {
+  background: rgba(255, 51, 51, 0.2);
+  color: var(--danger-red);
+  border: 1px solid var(--danger-red);
+}
+
+.type-warning {
+  background: rgba(255, 149, 0, 0.2);
+  color: var(--warning-orange);
+  border: 1px solid var(--warning-orange);
+}
+
+.type-success {
+  background: rgba(0, 255, 65, 0.2);
+  color: var(--success-green);
+  border: 1px solid var(--success-green);
+}
+
+.type-info {
+  background: rgba(0, 240, 255, 0.2);
+  color: var(--tech-blue);
+  border: 1px solid var(--tech-blue);
+}
+
+.activity-text {
+  color: #ccc;
+  flex: 1;
+}
+
+/* --- THREAT CARDS --- */
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: rgba(241, 196, 15, 0.05);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  color: #999;
+  padding: 10px 25px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(241, 196, 15, 0.1);
+  color: var(--bat-yellow);
+  border-color: var(--bat-yellow);
+}
+
+.filter-btn.active {
+  background: rgba(241, 196, 15, 0.2);
+  color: var(--bat-yellow);
+  border-color: var(--bat-yellow);
+}
+
+.threat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.threat-card {
+  background: rgba(5, 7, 10, 0.9);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+}
+
+.threat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--bat-yellow);
+  box-shadow: 0 10px 30px rgba(241, 196, 15, 0.3);
+}
+
+.threat-header {
+  position: relative;
+  height: 200px;
+}
+
+.threat-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(70%);
+  transition: filter 0.3s ease;
+}
+
+.threat-card:hover .threat-image {
+  filter: grayscale(0%);
+}
+
+.threat-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 15px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.critical-badge {
+  background: rgba(255, 51, 51, 0.9);
+  color: white;
+  border: 2px solid var(--danger-red);
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+.high-badge {
+  background: rgba(255, 149, 0, 0.9);
+  color: white;
+  border: 2px solid var(--warning-orange);
+}
+
+.moderate-badge {
+  background: rgba(241, 196, 15, 0.9);
+  color: black;
+  border: 2px solid var(--bat-yellow);
+}
+
+.threat-info {
+  padding: 20px;
+}
+
+.threat-info h3 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.threat-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.threat-summary {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin: 15px 0;
+}
+
+.threat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tag {
+  background: rgba(241, 196, 15, 0.1);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  color: var(--bat-yellow);
+  padding: 4px 10px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+}
+
+.status-detained {
+  color: var(--tech-blue);
+}
+
+/* --- MISSION PAGES --- */
+.mission-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.mission-stat-card {
+  background: rgba(241, 196, 15, 0.05);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mission-stat-card:hover {
+  background: rgba(241, 196, 15, 0.1);
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--bat-yellow);
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+.stat-description {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.log-body h4 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  margin: 20px 0 10px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(241, 196, 15, 0.3);
+  padding-bottom: 5px;
+}
+
+.log-body h4:first-child {
+  margin-top: 0;
+}
+
+/* --- EQUIPMENT PAGES --- */
+.equipment-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: rgba(241, 196, 15, 0.05);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  color: #999;
+  padding: 12px 30px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.tab-btn:hover {
+  background: rgba(241, 196, 15, 0.1);
+  color: var(--bat-yellow);
+  border-color: var(--bat-yellow);
+}
+
+.tab-btn.active {
+  background: rgba(241, 196, 15, 0.2);
+  color: var(--bat-yellow);
+  border-color: var(--bat-yellow);
+}
+
+.equipment-category {
+  display: none;
+}
+
+.equipment-category.active {
+  display: block;
+}
+
+.equipment-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.equipment-detail-card {
+  background: rgba(5, 7, 10, 0.9);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  overflow: hidden;
+}
+
+.equipment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(241, 196, 15, 0.05);
+  border-bottom: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.equipment-header h3 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.status-badge {
+  padding: 6px 15px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.status-badge.operational {
+  background: rgba(0, 255, 65, 0.2);
+  color: var(--success-green);
+  border: 1px solid var(--success-green);
+}
+
+.status-badge.maintenance {
+  background: rgba(255, 149, 0, 0.2);
+  color: var(--warning-orange);
+  border: 1px solid var(--warning-orange);
+}
+
+.equipment-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.equipment-specs {
+  padding: 25px;
+}
+
+.equipment-specs h4 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  margin: 20px 0 15px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(241, 196, 15, 0.3);
+  padding-bottom: 8px;
+}
+
+.equipment-specs h4:first-child {
+  margin-top: 0;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.spec-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.spec-value {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  color: var(--bat-yellow);
+  font-weight: 700;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #ccc;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-list li:last-child {
+  border-bottom: none;
+}
+
+.maintenance-schedule {
+  background: rgba(0, 240, 255, 0.05);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.maintenance-schedule.alert {
+  background: rgba(255, 149, 0, 0.05);
+  border-color: var(--warning-orange);
+}
+
+.maintenance-schedule h4 {
+  color: var(--tech-blue);
+  margin: 0 0 10px 0;
+  border: none;
+  padding: 0;
+}
+
+.maintenance-schedule.alert h4 {
+  color: var(--warning-orange);
+}
+
+.maintenance-schedule p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin: 5px 0;
+}
+
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.gear-card {
+  background: rgba(5, 7, 10, 0.9);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.gear-card:hover {
+  border-color: var(--bat-yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(241, 196, 15, 0.2);
+}
+
+.gear-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-align: center;
+  filter: grayscale(100%) brightness(1.5);
+}
+
+.gear-card h3 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+.gear-status {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.status-bar-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.status-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--bat-yellow), var(--success-green));
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+.gear-status span {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.gear-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.gear-features li {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #ccc;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gear-note {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--warning-orange);
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.weapons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.weapon-card {
+  background: rgba(5, 7, 10, 0.9);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.weapon-card:hover {
+  border-color: var(--bat-yellow);
+  transform: translateY(-3px);
+}
+
+.weapon-card h3 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.weapon-stock {
+  margin-bottom: 20px;
+}
+
+.weapon-stock span {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.stock-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.stock-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--danger-red), var(--warning-orange));
+  box-shadow: 0 0 8px rgba(255, 51, 51, 0.5);
+}
+
+.weapon-card p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  color: var(--bat-yellow);
+  margin: 15px 0 10px 0;
+}
+
+.weapon-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.weapon-card ul li {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #ccc;
+  padding: 5px 0;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px 0;
+}
+
+.tech-card {
+  background: rgba(5, 7, 10, 0.9);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  border-color: var(--bat-yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(241, 196, 15, 0.2);
+}
+
+.tech-card h3 {
+  color: var(--bat-yellow);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.tech-card p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin: 0 0 15px 0;
+}
+
+.tech-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.tech-stats span {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* --- MODAL --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--bat-dark);
+  border: 2px solid var(--bat-yellow);
+  margin: 5% auto;
+  padding: 40px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 2rem;
+  color: var(--bat-yellow);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--danger-red);
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .status-bar {
+    font-size: 0.65rem;
+    padding: 8px 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .container {
+    padding: 100px 15px 20px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(5, 7, 10, 0.98);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 2px solid var(--bat-yellow);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li a {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .quick-access-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .system-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .threat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gear-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weapons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+    margin: 10% auto;
+  }
+
+  .equipment-tabs {
+    gap: 10px;
+  }
+
+  .tab-btn {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
+
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 { 
+    font-size: 1.8rem; 
+    letter-spacing: 2px;
+  }
+
+  header p {
+    font-size: 0.7rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 20px 15px;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+
+  .title-line {
+    max-width: 50px;
+  }
+
+  .card-body {
+    flex-direction: column;
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .card {
+    width: 100%;
+    height: 150px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    clip-path: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .card:hover {
+    flex: 1;
+    height: 300px;
+  }
+
+  .card-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .card-content p {
+    font-size: 0.8rem;
+  }
+
+  .log-header {
+    padding: 15px;
+    font-size: 0.85rem;
+  }
+
+  .log-title {
+    width: 100%;
+  }
+
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    font-size: 0.6rem;
+  }
+}

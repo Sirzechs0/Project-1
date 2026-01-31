@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISSION ARCHIVES // WAYNE_TERM</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="crt-overlay"></div> 
+  <div class="grid-lines"></div>
+  
+  <div class="status-bar">
+    <div class="status-item">
+      <span class="label">LOCATION:</span>
+      <span class="value" id="location">GOTHAM_CITY</span>
+    </div>
+    <div class="status-item">
+      <span class="label">TIME:</span>
+      <span class="value" id="clock">00:00:00</span>
+    </div>
+    <div class="status-item">
+      <span class="label">ALERTS:</span>
+      <span class="value alert-blink">3 ACTIVE</span>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">WAYNE_TERMINAL</div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">DASHBOARD</a></li>
+        <li><a href="threats.html">THREATS</a></li>
+        <li><a href="missions.html" class="active">MISSIONS</a></li>
+        <li><a href="equipment.html">EQUIPMENT</a></li>
+        <li><a href="batcave.html">BATCAVE</a></li>
+        <li><a href="archives.html">ARCHIVES</a></li>
+      </ul>
+      <div class="nav-toggle" onclick="toggleNav()">☰</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+        <h1>MISSION_ARCHIVES</h1>
+        <p>Operational logs and case files | Total Operations: 47 | Success Rate: 98.7%</p>
+    </header>
+
+    <!-- Mission Stats -->
+    <div class="mission-stats">
+      <div class="mission-stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-description">Active Operations</div>
+      </div>
+      <div class="mission-stat-card">
+        <div class="stat-number">46</div>
+        <div class="stat-description">Completed Missions</div>
+      </div>
+      <div class="mission-stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-description">Failed Operations</div>
+      </div>
+      <div class="mission-stat-card">
+        <div class="stat-number">127</div>
+        <div class="stat-description">Lives Saved</div>
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterMissions('all')">ALL MISSIONS</button>
+      <button class="filter-btn" onclick="filterMissions('active')">ACTIVE</button>
+      <button class="filter-btn" onclick="filterMissions('complete')">COMPLETED</button>
+      <button class="filter-btn" onclick="filterMissions('critical')">CRITICAL</button>
+    </div>
+
+    <!-- Mission Logs -->
+    <div class="mission-section">
+      <div class="mission-logs">
+        <!-- Active Mission -->
+        <div class="log-entry active-mission" data-status="active" onclick="toggleLog(this)">
+          <div class="log-header">
+            <span class="log-id">#LOG_048</span>
+            <span class="log-title">Operation: Chemical Plant Investigation</span>
+            <span class="log-date">2024.01.31</span>
+            <span class="log-status status-active">IN PROGRESS</span>
+          </div>
+          <div class="log-body">
+            <h4>MISSION BRIEFING</h4>
+            <p>Reports of unusual chemical activity detected at ACE Chemical Plant in Gotham's industrial district. Surveillance drones have identified suspicious personnel matching known Joker associates. Chemical signatures consistent with previous Joker gas compounds detected in air samples.</p>
+            
+            <h4>CURRENT STATUS</h4>
+            <p>Surveillance phase ongoing. Batcomputer analysis indicates 87% probability of Joker involvement. GCPD perimeter established but maintaining distance per Batman's request. Recommend immediate tactical infiltration under cover of darkness.</p>
+            
+            <h4>TACTICAL ASSESSMENT</h4>
+            <p><strong>Primary Objective:</strong> Identify and neutralize chemical threat<br>
+            <strong>Secondary Objective:</strong> Apprehend Joker if present<br>
+            <strong>Civilian Risk:</strong> HIGH - Nearby residential area<br>
+            <strong>Equipment Required:</strong> Rebreather, Chemical neutralizers, EMP grenades</p>
+            
+            <div class="log-metrics">
+              <span>⏱️ Duration: Ongoing</span>
+              <span>📍 Location: ACE Chemical Plant</span>
+              <span>⚠️ Threat Level: CRITICAL</span>
+              <span>👥 Civilians at Risk: 2,400+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Completed Missions -->
+        <div class="log-entry" data-status="complete" onclick="toggleLog(this)">
+          <div class="log-header">
+            <span class="log-id">#LOG_047</span>
+            <span class="log-title">Operation: Arkham Breakout</span>
+            <span class="log-date">2024.01.28</span>
+            <span class="log-status status-complete">COMPLETE</span>
+          </div>
+          <div class="log-body">
+            <h4>MISSION BRIEFING</h4>
+            <p>Multiple containment breaches at Arkham Asylum following coordinated attack by external forces. Three high-priority targets escaped: Joker, Scarecrow, and Riddler. Immediate recapture essential to prevent city-wide chaos.</p>
+            
+            <h4>OPERATION SUMMARY</h4>
+            <p>Utilized Batmobile's tracking systems to locate escaped inmates. Joker was found at abandoned carnival in Amusement Mile - subdued after 45-minute engagement. Scarecrow apprehended at Gotham University chemistry lab. Riddler located through decoded puzzle left at crime scene - traced to old subway tunnels.</p>
+            
+            <h4>OUTCOME</h4>
+            <p>All three targets successfully recaptured and returned to Arkham Asylum within 4 hours and 12 minutes. Enhanced security protocols implemented. Zero civilian casualties. Minor structural damage to carnival attractions (already condemned property).</p>
+            
+            <h4>EVIDENCE COLLECTED</h4>
+            <p>• Joker's modified playing cards with chemical residue<br>
+            • Scarecrow's prototype fear toxin samples<br>
+            • Riddler's encrypted communications device<br>
+            • Security footage of external breach team (under analysis)</p>
+            
+            <div class="log-metrics">
+              <span>⏱️ Duration: 4h 12m</span>
+              <span>👥 Casualties: 0</span>
+              <span>⚠️ Threat Level: Critical</span>
+              <span>✅ Success Rate: 100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-entry" data-status="complete" onclick="toggleLog(this)">
+          <div class="log-header">
+            <span class="log-id">#LOG_046</span>
+            <span class="log-title">Operation: Iceberg Lounge Raid</span>
+            <span class="log-date">2024.01.25</span>
+            <span class="log-status status-complete">COMPLETE</span>
+          </div>
+          <div class="log-body">
+            <h4>MISSION BRIEFING</h4>
+            <p>Intelligence gathered via GCPD wiretap indicates Penguin's Iceberg Lounge serving as distribution hub for smuggled WayneTech prototypes. Raid authorization granted following confirmation of stolen technology presence.</p>
+            
+            <h4>OPERATION SUMMARY</h4>
+            <p>Infiltrated Iceberg Lounge through underground access tunnel at 02:30 hours. Encountered moderate resistance from Penguin's security forces. Located stolen prototypes in reinforced vault beneath main floor. Penguin attempted escape through underground railroad tunnels.</p>
+            
+            <h4>OUTCOME</h4>
+            <p>Successfully recovered 12 of 15 stolen WayneTech prototypes including experimental body armor plates and encrypted communications devices. Apprehended 15 of Penguin's associates. Penguin escaped via pre-prepared escape route - tracking in progress.</p>
+            
+            <h4>INTELLIGENCE GATHERED</h4>
+            <p>• Financial records linking Penguin to Falcone crime family<br>
+            • Shipping manifests revealing supply routes<br>
+            • Client list for illegal weapons sales<br>
+            • Blueprints for expansion of underground operations</p>
+            
+            <div class="log-metrics">
+              <span>⏱️ Duration: 2h 45m</span>
+              <span>👮 Arrests: 15</span>
+              <span>⚠️ Threat Level: High</span>
+              <span>💰 Assets Recovered: $2.4M</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-entry" data-status="complete" onclick="toggleLog(this)">
+          <div class="log-header">
+            <span class="log-id">#LOG_045</span>
+            <span class="log-title">Operation: Diamond District Heist</span>
+            <span class="log-date">2024.01.22</span>
+            <span class="log-status status-complete">COMPLETE</span>
+          </div>
+          <div class="log-body">
+            <h4>MISSION BRIEFING</h4>
+            <p>Silent alarm triggered at Gotham Diamond Exchange. Surveillance indicates Catwoman conducting high-value jewelry theft. Target appears to be the "Star of Gotham" diamond - estimated value $15 million.</p>
+            
+            <h4>OPERATION SUMMARY</h4>
+            <p>Arrived on scene within 4 minutes of alarm activation. Catwoman had already bypassed security systems and was in process of vault extraction. Brief rooftop pursuit ensued across financial district. Subject displayed exceptional acrobatic skills and evasion tactics.</p>
+            
+            <h4>OUTCOME</h4>
+            <p>Partial success. Catwoman escaped with approximately 25% of targeted items including several high-value pieces. Recovered remaining 75% of stolen goods including the Star of Gotham diamond. No civilian injuries. Subject left behind calling card - possible information exchange implied.</p>
+            
+            <h4>PERSONAL NOTE</h4>
+            <p>Subject's targets increasingly selective - focusing on items owned by individuals with suspected criminal connections. Possible vigilante motivation requires further investigation. Conflicted classification: criminal/potential ally.</p>
+            
+            <div class="log-metrics">
+              <span>⏱️ Duration: 1h 30m</span>
+              <span>💎 Recovery: 75%</span>
+              <span>⚠️ Threat Level: Moderate</span>
+              <span>👥 Injuries: 0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-entry" data-status="complete" onclick="toggleLog(this)">
+          <div class="log-header">
+            <span class="log-id">#LOG_044</span>
+            <span class="log-title">Operation: Blackgate Riot</span>
+            <span class="log-date">2024.01.19</span>
+            <span class="log-status status-complete">COMPLETE</span>
+          </div>
+          <div class="log-body">
+            <h4>MISSION BRIEFING</h4>
+            <p>Prison riot at Blackgate Penitentiary initiated by inmates in coordinated uprising. Corrections officers overwhelmed. GCPD SWAT deployed but requesting Batman's assistance for rapid containment.</p>
+            
+            <h4>OPERATION SUMMARY</h4>
+            <p>Coordinated with GCPD Commissioner Gordon for tactical entry. Identified riot leaders and systematically neutralized resistance. Discovered riot was cover for attempted breakout by mob enforcer Salvatore Maroni. Intercepted escape attempt at loading dock.</p>
+            
+            <h4>OUTCOME</h4>
+            <p>Riot suppressed within 3 hours. Maroni's escape prevented. 8 corrections officers rescued from hostage situation. 4 inmates requiring medical attention (non-life-threatening). Prison security protocols upgraded following incident review.</p>
+            
+            <div class="log-metrics">
+              <span>⏱️ Duration: 3h 15m</span>
+              <span>👮 Officers Rescued: 8</span>
+              <span>⚠️ Threat Level: High</span>
+              <span>🚫 Escapes Prevented: 1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-entry" data-status="complete" onclick="toggleLog(this)">
+          <div class="log-header">
+            <span class="log-id">#LOG_043</span>
+            <span class="log-title">Operation: Toxin Outbreak</span>
+            <span class="log-date">2024.01.15</span>
+            <span class="log-status status-complete">COMPLETE</span>
+          </div>
+          <div class="log-body">
+            <h4>MISSION BRIEFING</h4>
+            <p>Reports of hallucinogenic outbreak in East End district. Approximately 40 civilians exhibiting fear-induced hysteria. Chemical analysis indicates Scarecrow's fear toxin. Source of contamination unknown.</p>
+            
+            <h4>OPERATION SUMMARY</h4>
+            <p>Deployed antidote to affected civilians via aerosolized dispersal system. Traced contamination to compromised water supply at abandoned pumping station. Discovered Scarecrow conducting field test of improved fear toxin formula. Subject apprehended after brief confrontation.</p>
+            
+            <h4>OUTCOME</h4>
+            <p>All affected civilians treated and recovered. Fear toxin source eliminated. Scarecrow returned to Arkham Asylum. Water supply secured and decontaminated. Medical personnel briefed on antidote administration for future incidents.</p>
+            
+            <h4>TECHNICAL NOTES</h4>
+            <p>New fear toxin variant shows increased potency and longer duration. Antidote formula updated in Batcomputer medical database. Recommended increased monitoring of Arkham Asylum pharmaceutical storage.</p>
+            
+            <div class="log-metrics">
+              <span>⏱️ Duration: 5h 30m</span>
+              <span>👥 Civilians Affected: 40</span>
+              <span>⚠️ Threat Level: Critical</span>
+              <span>💉 Antidote Deployed: 100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-entry" data-status="complete" onclick="toggleLog(this)">
+          <div class="log-header">
+            <span class="log-id">#LOG_042</span>
+            <span class="log-title">Operation: Two-Face Bank Heist</span>
+            <span class="log-date">2024.01.12</span>
+            <span class="log-status status-complete">COMPLETE</span>
+          </div>
+          <div class="log-body">
+            <h4>MISSION BRIEFING</h4>
+            <p>Two-Face and gang targeting Second National Bank for coordinated heist. Pattern suggests elaborate scheme based on duality symbolism - primary vault and secondary safe deposit boxes targeted simultaneously.</p>
+            
+            <h4>OPERATION SUMMARY</h4>
+            <p>Intercepted Two-Face gang during vault breach. Subject made all tactical decisions via coin flip as predicted. Exploited this pattern to manipulate engagement outcome. Harvey Dent personality briefly emerged during confrontation - provided tactical advantage.</p>
+            
+            <h4>OUTCOME</h4>
+            <p>Heist prevented. $8 million in currency and securities secured. Two-Face escaped during police transfer (coin flip determined escape attempt). 12 gang members apprehended. Bank reopened following security assessment.</p>
+            
+            <h4>PSYCHOLOGICAL ASSESSMENT</h4>
+            <p>Harvey Dent personality shows increasing strength during confrontations with Batman. Possible avenue for rehabilitation if therapy can be arranged. Recommended psychiatric consultation with Dr. Leslie Thompkins.</p>
+            
+            <div class="log-metrics">
+              <span>⏱️ Duration: 2h 15m</span>
+              <span>💰 Money Secured: $8M</span>
+              <span>⚠️ Threat Level: High</span>
+              <span>👮 Arrests: 12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <div class="scanline"></div>
+        <p>WAYNETECH OS v9.4 // MISSION DATABASE // Access Level: ALPHA-1</p>
+        <p class="footer-warning">⚠️ CLASSIFIED OPERATIONAL RECORDS - AUTHORIZED PERSONNEL ONLY ⚠️</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/missions.js"></script>
+</body>
+</html>

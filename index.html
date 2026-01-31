@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAYNE_TERM // CLASSIFIED</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="crt-overlay"></div> 
+  <div class="grid-lines"></div>
+  
+  <!-- TOP STATUS BAR -->
+  <div class="status-bar">
+    <div class="status-item">
+      <span class="label">LOCATION:</span>
+      <span class="value" id="location">GOTHAM_CITY</span>
+    </div>
+    <div class="status-item">
+      <span class="label">TIME:</span>
+      <span class="value" id="clock">00:00:00</span>
+    </div>
+    <div class="status-item">
+      <span class="label">ALERTS:</span>
+      <span class="value alert-blink">3 ACTIVE</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">WAYNE_TERMINAL</div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">DASHBOARD</a></li>
+        <li><a href="pages/threats.html">THREATS</a></li>
+        <li><a href="pages/missions.html">MISSIONS</a></li>
+        <li><a href="pages/equipment.html">EQUIPMENT</a></li>
+        <li><a href="pages/batcave.html">BATCAVE</a></li>
+        <li><a href="pages/archives.html">ARCHIVES</a></li>
+      </ul>
+      <div class="nav-toggle" onclick="toggleNav()">☰</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+        <h1 class="glitch" data-text="DATABASE_WAYNE_ENT">DATABASE_<span>WAYNE_ENT</span></h1>
+        <p>System Status: <span class="blink">ONLINE</span> | Encryption: DECRA | Clearance: <span style="color: #ff3333;">ALPHA-1</span></p>
+    </header>
+
+    <!-- STATS DASHBOARD -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">⚠️</div>
+        <div class="stat-value" id="threats">5</div>
+        <div class="stat-label">Active Threats</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🦇</div>
+        <div class="stat-value" id="missions">47</div>
+        <div class="stat-label">Missions Complete</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value">98.7<span class="percent">%</span></div>
+        <div class="stat-label">Success Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-value" id="power">100</div>
+        <div class="stat-label">System Power</div>
+      </div>
+    </div>
+
+    <!-- QUICK ACCESS CARDS -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      QUICK ACCESS
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="quick-access-grid">
+      <a href="pages/threats.html" class="access-card">
+        <div class="access-icon">🎭</div>
+        <h3>THREAT DATABASE</h3>
+        <p>Complete profiles of known adversaries, including psychological assessments and tactical countermeasures.</p>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a href="pages/missions.html" class="access-card">
+        <div class="access-icon">📋</div>
+        <h3>MISSION ARCHIVES</h3>
+        <p>Detailed logs of all operations, from successful interventions to ongoing investigations.</p>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a href="pages/equipment.html" class="access-card">
+        <div class="access-icon">⚙️</div>
+        <h3>EQUIPMENT BAY</h3>
+        <p>Real-time status monitoring and specifications for all tactical equipment and vehicles.</p>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a href="pages/batcave.html" class="access-card">
+        <div class="access-icon">🏰</div>
+        <h3>BATCAVE HQ</h3>
+        <p>Central command center with live feeds, forensic analysis, and strategic planning tools.</p>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a href="pages/archives.html" class="access-card">
+        <div class="access-icon">📚</div>
+        <h3>CASE ARCHIVES</h3>
+        <p>Historical records of Gotham's most significant criminal cases and Batman's origin.</p>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a href="pages/gotham.html" class="access-card">
+        <div class="access-icon">🌃</div>
+        <h3>GOTHAM CITY MAP</h3>
+        <p>Interactive city surveillance with crime heat maps and GCPD coordination interface.</p>
+        <span class="access-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- SYSTEM STATUS -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      SYSTEM STATUS
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="system-status-grid">
+      <div class="status-module">
+        <h3>🔒 SECURITY PROTOCOLS</h3>
+        <div class="status-list">
+          <div class="status-row">
+            <span>Firewall Status</span>
+            <span class="status-good">ACTIVE</span>
+          </div>
+          <div class="status-row">
+            <span>Encryption Level</span>
+            <span class="status-good">MAXIMUM</span>
+          </div>
+          <div class="status-row">
+            <span>Intrusion Detection</span>
+            <span class="status-good">ENABLED</span>
+          </div>
+          <div class="status-row">
+            <span>Last Security Scan</span>
+            <span class="status-info">2 MIN AGO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-module">
+        <h3>🌐 NETWORK STATUS</h3>
+        <div class="status-list">
+          <div class="status-row">
+            <span>WayneTech Satellites</span>
+            <span class="status-good">12/12 ONLINE</span>
+          </div>
+          <div class="status-row">
+            <span>GCPD Uplink</span>
+            <span class="status-good">CONNECTED</span>
+          </div>
+          <div class="status-row">
+            <span>Surveillance Grid</span>
+            <span class="status-good">OPERATIONAL</span>
+          </div>
+          <div class="status-row">
+            <span>Bandwidth Usage</span>
+            <span class="status-warning">78%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-module">
+        <h3>⚡ POWER SYSTEMS</h3>
+        <div class="status-list">
+          <div class="status-row">
+            <span>Main Generator</span>
+            <span class="status-good">100%</span>
+          </div>
+          <div class="status-row">
+            <span>Backup Generator</span>
+            <span class="status-good">STANDBY</span>
+          </div>
+          <div class="status-row">
+            <span>Solar Array</span>
+            <span class="status-good">CHARGING</span>
+          </div>
+          <div class="status-row">
+            <span>Battery Reserve</span>
+            <span class="status-good">96%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECENT ACTIVITY FEED -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      ACTIVITY FEED
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="activity-feed">
+      <div class="activity-item">
+        <span class="activity-time">23:47</span>
+        <span class="activity-type type-alert">ALERT</span>
+        <span class="activity-text">Chemical signature detected at ACE Chemical Plant</span>
+      </div>
+      <div class="activity-item">
+        <span class="activity-time">23:32</span>
+        <span class="activity-type type-info">INFO</span>
+        <span class="activity-text">Batmobile diagnostics completed - All systems nominal</span>
+      </div>
+      <div class="activity-item">
+        <span class="activity-time">23:18</span>
+        <span class="activity-type type-success">SUCCESS</span>
+        <span class="activity-text">Mission LOG_047 marked as complete</span>
+      </div>
+      <div class="activity-item">
+        <span class="activity-time">22:55</span>
+        <span class="activity-type type-alert">ALERT</span>
+        <span class="activity-text">Unauthorized access attempt blocked from IP 192.168.1.142</span>
+      </div>
+      <div class="activity-item">
+        <span class="activity-time">22:41</span>
+        <span class="activity-type type-info">INFO</span>
+        <span class="activity-text">GCPD requested backup for East End disturbance</span>
+      </div>
+      <div class="activity-item">
+        <span class="activity-time">22:29</span>
+        <span class="activity-type type-warning">WARNING</span>
+        <span class="activity-text">Equipment maintenance required: Grapnel Gun (Item #3)</span>
+      </div>
+    </div>
+
+    <footer>
+        <div class="scanline"></div>
+        <p>WAYNETECH OS v9.4 // [SECURE CONNECTION] // Access Level: ALPHA-1 // User: BRUCE_WAYNE</p>
+        <p class="footer-warning">⚠️ UNAUTHORIZED ACCESS WILL BE PROSECUTED // ALL ACTIVITY MONITORED ⚠️</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

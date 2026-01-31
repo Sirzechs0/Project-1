@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BATCAVE HQ // WAYNE_TERM</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="crt-overlay"></div> 
+  <div class="grid-lines"></div>
+  
+  <div class="status-bar">
+    <div class="status-item">
+      <span class="label">LOCATION:</span>
+      <span class="value" id="location">BATCAVE</span>
+    </div>
+    <div class="status-item">
+      <span class="label">TIME:</span>
+      <span class="value" id="clock">00:00:00</span>
+    </div>
+    <div class="status-item">
+      <span class="label">SYSTEMS:</span>
+      <span class="value" style="color: #00ff41;">ALL ONLINE</span>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">WAYNE_TERMINAL</div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">DASHBOARD</a></li>
+        <li><a href="threats.html">THREATS</a></li>
+        <li><a href="missions.html">MISSIONS</a></li>
+        <li><a href="equipment.html">EQUIPMENT</a></li>
+        <li><a href="batcave.html" class="active">BATCAVE</a></li>
+        <li><a href="archives.html">ARCHIVES</a></li>
+      </ul>
+      <div class="nav-toggle" onclick="toggleNav()">☰</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+        <h1>BATCAVE_HQ</h1>
+        <p>Central Command & Operations Center | Est. 1939 | Depth: 200ft Below Wayne Manor</p>
+    </header>
+
+    <!-- Batcave Overview -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      FACILITY OVERVIEW
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="batcave-description" style="max-width: 1400px; margin: 40px auto; font-family: 'Share Tech Mono', monospace; font-size: 0.95rem; line-height: 1.8; color: #ccc; background: rgba(241, 196, 15, 0.03); padding: 30px; border-left: 4px solid var(--bat-yellow);">
+      <p>The Batcave serves as Batman's primary base of operations, housing advanced technology, forensic laboratories, training facilities, and vehicle depot. Located 200 feet beneath Wayne Manor, the cave system provides natural concealment while offering direct access to Gotham via underground waterways and road tunnels.</p>
+      
+      <p style="margin-top: 20px;">Originally discovered by a young Bruce Wayne after falling through deteriorated flooring, the cave has been transformed into a state-of-the-art command center. The natural limestone formations provide structural integrity while Wayne Industries technology ensures complete isolation from external detection.</p>
+    </div>
+
+    <!-- Facility Sections -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      FACILITY SECTIONS
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="facility-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1400px; margin: 40px auto;">
+      <div class="facility-card" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 25px; transition: all 0.3s ease;">
+        <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; margin: 0 0 15px 0;">🖥️ COMMAND CENTER</h3>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.6; color: #ccc; margin: 0;">Central hub featuring the Batcomputer, multiple monitor arrays displaying city surveillance, GCPD communications, and real-time crime analysis. Quantum processing enables simultaneous data analysis from thousands of sources.</p>
+        <ul style="list-style: none; padding: 0; margin: 20px 0 0 0; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;">
+          <li style="padding: 5px 0; color: #999;">• 50+ HD Monitor Array</li>
+          <li style="padding: 5px 0; color: #999;">• Quantum Supercomputer</li>
+          <li style="padding: 5px 0; color: #999;">• Satellite Uplink Station</li>
+          <li style="padding: 5px 0; color: #999;">• Emergency Broadcast Override</li>
+        </ul>
+      </div>
+
+      <div class="facility-card" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 25px; transition: all 0.3s ease;">
+        <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; margin: 0 0 15px 0;">🔬 FORENSIC LABORATORY</h3>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.6; color: #ccc; margin: 0;">State-of-the-art crime lab equipped with DNA sequencing, chemical analysis, ballistics testing, and digital forensics capabilities. Automated systems process evidence faster than any police facility.</p>
+        <ul style="list-style: none; padding: 0; margin: 20px 0 0 0; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;">
+          <li style="padding: 5px 0; color: #999;">• DNA Sequencer (Results in 30min)</li>
+          <li style="padding: 5px 0; color: #999;">• Mass Spectrometer</li>
+          <li style="padding: 5px 0; color: #999;">• Ballistics Database</li>
+          <li style="padding: 5px 0; color: #999;">• Digital Forensics Station</li>
+        </ul>
+      </div>
+
+      <div class="facility-card" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 25px; transition: all 0.3s ease;">
+        <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; margin: 0 0 15px 0;">🥋 TRAINING FACILITY</h3>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.6; color: #ccc; margin: 0;">Comprehensive training area including combat simulation room, gymnastics equipment, and meditation chamber. Holographic opponents provide realistic combat scenarios for skill maintenance.</p>
+        <ul style="list-style: none; padding: 0; margin: 20px 0 0 0; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;">
+          <li style="padding: 5px 0; color: #999;">• Holographic Combat Simulator</li>
+          <li style="padding: 5px 0; color: #999;">• Olympic Gymnastics Setup</li>
+          <li style="padding: 5px 0; color: #999;">• Meditation Chamber</li>
+          <li style="padding: 5px 0; color: #999;">• Weapons Training Range</li>
+        </ul>
+      </div>
+
+      <div class="facility-card" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 25px; transition: all 0.3s ease;">
+        <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; margin: 0 0 15px 0;">🚗 VEHICLE DEPOT</h3>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.6; color: #ccc; margin: 0;">Underground garage housing Batmobile, Batwing, Batcycle, and auxiliary vehicles. Automated maintenance systems perform diagnostics and repairs. Direct tunnel access to all Gotham districts.</p>
+        <ul style="list-style: none; padding: 0; margin: 20px 0 0 0; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;">
+          <li style="padding: 5px 0; color: #999;">• Primary Vehicle Bay</li>
+          <li style="padding: 5px 0; color: #999;">• Automated Repair Systems</li>
+          <li style="padding: 5px 0; color: #999;">• Fuel & Armament Storage</li>
+          <li style="padding: 5px 0; color: #999;">• 5 Exit Tunnels to Gotham</li>
+        </ul>
+      </div>
+
+      <div class="facility-card" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 25px; transition: all 0.3s ease;">
+        <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; margin: 0 0 15px 0;">💊 MEDICAL BAY</h3>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.6; color: #ccc; margin: 0;">Fully equipped surgical suite with diagnostic imaging, trauma care capabilities, and extensive pharmaceutical storage. Robotic surgical assistant enables solo operations when necessary.</p>
+        <ul style="list-style: none; padding: 0; margin: 20px 0 0 0; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;">
+          <li style="padding: 5px 0; color: #999;">• Surgical Suite</li>
+          <li style="padding: 5px 0; color: #999;">• MRI & CT Scanner</li>
+          <li style="padding: 5px 0; color: #999;">• Antidote Manufacturing Lab</li>
+          <li style="padding: 5px 0; color: #999;">• Cryogenic Storage</li>
+        </ul>
+      </div>
+
+      <div class="facility-card" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 25px; transition: all 0.3s ease;">
+        <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; margin: 0 0 15px 0;">🏛️ TROPHY ROOM</h3>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.6; color: #ccc; margin: 0;">Secure vault displaying mementos from past cases including villains' weapons, recovered artifacts, and historical evidence. Serves as reminder of Gotham's ongoing threats.</p>
+        <ul style="list-style: none; padding: 0; margin: 20px 0 0 0; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;">
+          <li style="padding: 5px 0; color: #999;">• Giant Penny (1947 Case)</li>
+          <li style="padding: 5px 0; color: #999;">• Joker's Playing Cards</li>
+          <li style="padding: 5px 0; color: #999;">• Freeze Gun Prototype</li>
+          <li style="padding: 5px 0; color: #999;">• Court of Owls Mask</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Security Systems -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      SECURITY SYSTEMS
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="security-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1400px; margin: 40px auto;">
+      <div class="security-item" style="background: rgba(241, 196, 15, 0.05); border: 1px solid rgba(241, 196, 15, 0.3); padding: 20px;">
+        <h4 style="color: var(--bat-yellow); margin: 0 0 15px 0; font-family: 'Rajdhani', sans-serif;">🔐 ACCESS CONTROL</h4>
+        <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.85rem; color: #ccc; margin: 0;">Biometric authentication (retinal scan, fingerprint, voice recognition). DNA verification for Bruce Wayne. Automated defense systems activate for unauthorized access.</p>
+      </div>
+
+      <div class="security-item" style="background: rgba(241, 196, 15, 0.05); border: 1px solid rgba(241, 196, 15, 0.3); padding: 20px;">
+        <h4 style="color: var(--bat-yellow); margin: 0 0 15px 0; font-family: 'Rajdhani', sans-serif;">📡 SIGNAL JAMMING</h4>
+        <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.85rem; color: #ccc; margin: 0;">Complete electromagnetic isolation. All wireless signals blocked. Prevents remote surveillance or tracking. Batcave undetectable by satellite, radar, or sonar.</p>
+      </div>
+
+      <div class="security-item" style="background: rgba(241, 196, 15, 0.05); border: 1px solid rgba(241, 196, 15, 0.3); padding: 20px;">
+        <h4 style="color: var(--bat-yellow); margin: 0 0 15px 0; font-family: 'Rajdhani', sans-serif;">🛡️ STRUCTURAL DEFENSE</h4>
+        <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.85rem; color: #ccc; margin: 0;">Reinforced titanium blast doors. Natural limestone provides additional shielding. Emergency lockdown can seal facility in 15 seconds. Self-destruct protocol (never activated).</p>
+      </div>
+
+      <div class="security-item" style="background: rgba(241, 196, 15, 0.05); border: 1px solid rgba(241, 196, 15, 0.3); padding: 20px;">
+        <h4 style="color: var(--bat-yellow); margin: 0 0 15px 0; font-family: 'Rajdhani', sans-serif;">🎥 SURVEILLANCE</h4>
+        <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.85rem; color: #ccc; margin: 0;">200+ cameras monitor all access points and cave system. Motion sensors throughout. Automated threat assessment. 30-day recording buffer with unlimited archive.</p>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      FACILITY STATISTICS
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📏</div>
+        <div class="stat-value">12,000<span class="percent">ft²</span></div>
+        <div class="stat-label">Total Floor Space</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-value">500<span class="percent">kW</span></div>
+        <div class="stat-label">Power Capacity</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌡️</div>
+        <div class="stat-value">55<span class="percent">°F</span></div>
+        <div class="stat-label">Ambient Temperature</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🔒</div>
+        <div class="stat-value">0</div>
+        <div class="stat-label">Security Breaches</div>
+      </div>
+    </div>
+
+    <footer>
+        <div class="scanline"></div>
+        <p>WAYNETECH OS v9.4 // BATCAVE COMMAND CENTER // Access Level: ALPHA-1</p>
+        <p class="footer-warning">⚠️ LOCATION CLASSIFIED - UNAUTHORIZED DISCLOSURE PROHIBITED ⚠️</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

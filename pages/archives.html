@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASE ARCHIVES // WAYNE_TERM</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="crt-overlay"></div> 
+  <div class="grid-lines"></div>
+  
+  <div class="status-bar">
+    <div class="status-item">
+      <span class="label">LOCATION:</span>
+      <span class="value" id="location">BATCAVE</span>
+    </div>
+    <div class="status-item">
+      <span class="label">TIME:</span>
+      <span class="value" id="clock">00:00:00</span>
+    </div>
+    <div class="status-item">
+      <span class="label">ARCHIVE STATUS:</span>
+      <span class="value">SECURE</span>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">WAYNE_TERMINAL</div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">DASHBOARD</a></li>
+        <li><a href="threats.html">THREATS</a></li>
+        <li><a href="missions.html">MISSIONS</a></li>
+        <li><a href="equipment.html">EQUIPMENT</a></li>
+        <li><a href="batcave.html">BATCAVE</a></li>
+        <li><a href="archives.html" class="active">ARCHIVES</a></li>
+      </ul>
+      <div class="nav-toggle" onclick="toggleNav()">☰</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+        <h1>CASE_ARCHIVES</h1>
+        <p>Historical Records & Origin Documentation | Classification: EYES ONLY</p>
+    </header>
+
+    <!-- Origin Story -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      ORIGIN: THE BATMAN
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="origin-story" style="max-width: 1400px; margin: 40px auto; background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 40px;">
+      <div class="origin-header" style="text-align: center; margin-bottom: 30px;">
+        <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 2rem; margin: 0 0 10px 0;">THE NIGHT THAT CHANGED EVERYTHING</h3>
+        <p style="font-family: 'Share Tech Mono', monospace; color: #999; font-size: 0.9rem;">DATE: June 26, 1989 | LOCATION: Crime Alley, Park Row</p>
+      </div>
+
+      <div class="origin-content" style="font-family: 'Share Tech Mono', monospace; line-height: 1.8; color: #ccc;">
+        <p style="margin-bottom: 20px; font-size: 1rem; color: var(--bat-yellow); font-weight: bold;">INCIDENT REPORT - WITNESS TESTIMONY</p>
+        
+        <p>Eight-year-old Bruce Wayne witnessed the murder of his parents, Dr. Thomas Wayne and Martha Wayne, following a screening of "The Mark of Zorro" at Monarch Theatre. The family was walking through Park Row (now known as Crime Alley) when confronted by mugger Joe Chill.</p>
+        
+        <p style="margin-top: 20px;">Thomas Wayne attempted to protect his family. Suspect Chill became agitated. Two gunshots. Thomas Wayne (deceased). Martha Wayne (deceased). Young Bruce Wayne traumatized but physically unharmed. Pearls from Martha Wayne's necklace scattered across the alley.</p>
+        
+        <p style="margin-top: 20px; background: rgba(255, 51, 51, 0.1); padding: 20px; border-left: 4px solid var(--danger-red);">This single moment of violence would reshape Gotham City forever. The boy who lost everything in that alley would spend the next decade preparing to ensure no other child would suffer the same fate.</p>
+        
+        <h4 style="color: var(--bat-yellow); margin-top: 40px; font-size: 1.2rem;">THE TRAINING YEARS (1989-1999)</h4>
+        
+        <p>Following the tragedy, young Bruce Wayne made a solemn vow at his parents' graves: he would dedicate his life to fighting crime and protecting the innocent. What followed was the most comprehensive training regimen ever undertaken by a single individual.</p>
+        
+        <ul style="margin: 20px 0; padding-left: 20px;">
+          <li style="margin: 10px 0;"><strong>1989-1993:</strong> Remained in Gotham under care of family butler Alfred Pennyworth. Excelled academically while studying martial arts, criminology, and forensic science.</li>
+          <li style="margin: 10px 0;"><strong>1993-1996:</strong> World travel begins. Studied with masters across Asia, learning 127 different fighting styles. Trained with manhunters in Africa, learned stealth from ninja in Japan.</li>
+          <li style="margin: 10px 0;"><strong>1996-1998:</strong> European tour focusing on detective work, criminal psychology, and escape artistry. Worked incognito with police forces to understand criminal behavior.</li>
+          <li style="margin: 10px 0;"><strong>1998-1999:</strong> Final training with League of Shadows under Ra's al Ghul. Mastered advanced combat techniques and tactical strategy before philosophical differences led to departure.</li>
+        </ul>
+        
+        <h4 style="color: var(--bat-yellow); margin-top: 40px; font-size: 1.2rem;">THE SYMBOL (1999)</h4>
+        
+        <p>Upon returning to Gotham, Bruce Wayne initially attempted street-level crime fighting without disguise. First night resulted in severe injury - gunshot wound, knife lacerations. Concluded criminals had no fear of a man, regardless of training.</p>
+        
+        <p style="margin-top: 20px; background: rgba(241, 196, 15, 0.1); padding: 20px; border-left: 4px solid var(--bat-yellow);">"Criminals are a superstitious, cowardly lot. I must become a creature of the night. Black, terrible... I shall become a bat."</p>
+        
+        <p style="margin-top: 20px;">That night, a bat crashed through the window of Wayne Manor study. Bruce Wayne saw it as an omen. The Batman was born.</p>
+        
+        <h4 style="color: var(--bat-yellow); margin-top: 40px; font-size: 1.2rem;">FIRST YEAR (1999-2000)</h4>
+        
+        <p>Initial operations focused on Gotham's organized crime. Falcone crime family, Maroni syndicate, corrupt GCPD officers. Batman operated as urban legend - criminals uncertain if he was real or myth. Psychological warfare proved as effective as physical intervention.</p>
+        
+        <p style="margin-top: 20px;">Partnership with Captain (later Commissioner) James Gordon established. Gordon one of few honest cops in GCPD. Mutual respect developed despite Gordon's initial skepticism about vigilante justice.</p>
+        
+        <h4 style="color: var(--bat-yellow); margin-top: 40px; font-size: 1.2rem;">THE ROGUES GALLERY EMERGES (2000-Present)</h4>
+        
+        <p>Batman's presence changed Gotham's criminal landscape. Traditional organized crime gave way to theatrical "supervillains." First was Joker (2000), followed rapidly by others: Penguin, Riddler, Two-Face, Scarecrow, Poison Ivy, Bane, and dozens more.</p>
+        
+        <p style="margin-top: 20px;">Theory: Batman's extreme methods inspired equally extreme opposition. Arkham Asylum became revolving door. Each victory temporary. The crusade continues.</p>
+      </div>
+    </div>
+
+    <!-- Historical Cases -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      SIGNIFICANT HISTORICAL CASES
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="historical-cases" style="max-width: 1400px; margin: 40px auto;">
+      <div class="case-entry" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 30px; margin-bottom: 25px;">
+        <div class="case-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(241, 196, 15, 0.3);">
+          <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin: 0;">THE JOKER'S FIRST APPEARANCE</h3>
+          <span style="color: #999; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem;">YEAR: 2000</span>
+        </div>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.7; color: #ccc;">Chemical plant explosion at Ace Chemicals created Gotham's most dangerous criminal. Subject fell into vat of chemicals during confrontation with Batman. Emerged with bleached skin, green hair, permanent smile. Immediately began campaign of terror using "Joker toxin" - chemical compound causing fatal laughter. First major test of Batman's no-kill rule. Case never truly closed - Joker escapes Arkham regularly.</p>
+      </div>
+
+      <div class="case-entry" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 30px; margin-bottom: 25px;">
+        <div class="case-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(241, 196, 15, 0.3);">
+          <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin: 0;">KNIGHTFALL: BROKEN BAT</h3>
+          <span style="color: #999; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem;">YEAR: 2003</span>
+        </div>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.7; color: #ccc;">Bane orchestrated mass breakout from Arkham Asylum, releasing all inmates simultaneously. Batman spent three months recapturing escapees with minimal rest. Bane observed, learning Batman's tactics and weaknesses. Final confrontation in Batcave - Bane broke Batman's back over his knee. Bruce Wayne paralyzed for six months. Required intensive physical therapy and experimental procedures to recover. Jean-Paul Valley served as temporary Batman during recovery period with concerning results. Case demonstrated Batman's mortality and need for contingency planning.</p>
+      </div>
+
+      <div class="case-entry" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 30px; margin-bottom: 25px;">
+        <div class="case-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(241, 196, 15, 0.3);">
+          <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin: 0;">THE LONG HALLOWEEN</h3>
+          <span style="color: #999; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem;">YEAR: 2001-2002</span>
+        </div>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.7; color: #ccc;">Serial killer "Holiday" murdered prominent Gotham citizens on holidays over 13-month period. Victims primarily connected to Falcone crime family. Case complicated by transformation of District Attorney Harvey Dent into Two-Face following acid attack. Investigation revealed complex web of betrayal within Gotham's organized crime structure. Multiple suspects, uncertain conclusion. Case marked transition from traditional organized crime to "freaks" dominating Gotham's underworld. Partnership with Gordon and Dent before Dent's fall represented peak of hope for Gotham's legal system.</p>
+      </div>
+
+      <div class="case-entry" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 30px; margin-bottom: 25px;">
+        <div class="case-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(241, 196, 15, 0.3);">
+          <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin: 0;">HUSH: IDENTITY CRISIS</h3>
+          <span style="color: #999; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem;">YEAR: 2008</span>
+        </div>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.7; color: #ccc;">Childhood friend Dr. Thomas Elliot, operating as "Hush," orchestrated elaborate scheme targeting Batman's entire rogues gallery. Hush exploited personal knowledge of Bruce Wayne's psychology and relationships. Involved multiple villains including Joker, Riddler, Scarecrow in coordinated attacks. Revealed Batman's secret identity to several criminals. Case exposed vulnerability of maintaining dual identity. Romantic complications with Catwoman. Demonstrated emotional toll of Batman lifestyle on personal relationships. Hush remains at large with dangerous knowledge.</p>
+      </div>
+
+      <div class="case-entry" style="background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(241, 196, 15, 0.2); padding: 30px; margin-bottom: 25px;">
+        <div class="case-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(241, 196, 15, 0.3);">
+          <h3 style="color: var(--bat-yellow); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; margin: 0;">COURT OF OWLS CONSPIRACY</h3>
+          <span style="color: #999; font-family: 'Share Tech Mono', monospace; font-size: 0.9rem;">YEAR: 2015</span>
+        </div>
+        <p style="font-family: 'Share Tech Mono', monospace; line-height: 1.7; color: #ccc;">Discovery of secret society "Court of Owls" controlling Gotham for over 200 years challenged Batman's understanding of his city. Shadowy organization used undead assassins called "Talons" to eliminate threats. Extensive underground network beneath Gotham predated even Batcave. Court knew Bruce Wayne's identity, observed him for years. Psychological warfare through maze imprisonment nearly broke Batman mentally. Case revealed limits of Batman's knowledge about Gotham. Wayne family implicated in Court's history. Some Court members remain unidentified - ongoing investigation.</p>
+      </div>
+    </div>
+
+    <!-- Personal Reflections -->
+    <h2 class="section-title">
+      <span class="title-line"></span>
+      PERSONAL LOG - BRUCE WAYNE
+      <span class="title-line"></span>
+    </h2>
+
+    <div class="personal-log" style="max-width: 1400px; margin: 40px auto; background: rgba(5, 7, 10, 0.9); border: 1px solid rgba(0, 240, 255, 0.3); padding: 40px; font-family: 'Share Tech Mono', monospace; line-height: 1.8; color: #ccc;">
+      <p style="font-style: italic; color: var(--tech-blue); margin-bottom: 20px;">Entry Date: January 31, 2024</p>
+      
+      <p>Twenty-five years since I first put on the cowl. Sometimes feels like yesterday. Sometimes feels like forever.</p>
+      
+      <p style="margin-top: 20px;">Alfred asks if it's been worth it. The injuries. The isolation. The relationships sacrificed. I think about that night in Crime Alley often. The pearls hitting the ground. The sound my mother made. My father's last words: "Don't be afraid."</p>
+      
+      <p style="margin-top: 20px;">Gotham is still broken. Arkham still has a revolving door. New threats emerge faster than I can contain old ones. By traditional metrics, I've failed. The city isn't saved. The mission isn't complete.</p>
+      
+      <p style="margin-top: 20px;">But last week, a young girl was walking home from a late shift. Three men cornered her in an alley. She screamed. I was there in forty seconds. She's safe. She'll grow up. Have a life. That's not nothing.</p>
+      
+      <p style="margin-top: 20px;">The Batcomputer shows me the statistics. Crime rates. Murder rates. They fluctuate. Sometimes down. Sometimes up. But I've learned to see past the numbers. Every life saved matters. Every child who doesn't lose their parents in a dark alley. Every person who makes it home safely. That's why I do this.</p>
+      
+      <p style="margin-top: 20px;">I can't save Gotham. Not completely. Not alone. But I can be there when someone needs help. I can be the symbol that makes criminals think twice. I can give people hope that someone is watching. Someone cares. Someone will come.</p>
+      
+      <p style="margin-top: 20px;">The mission continues. It always will. Because that eight-year-old boy in Crime Alley made a promise. And Bruce Wayne keeps his promises.</p>
+      
+      <p style="margin-top: 40px; text-align: right; color: var(--bat-yellow); font-weight: bold;">- Bruce</p>
+    </div>
+
+    <footer>
+        <div class="scanline"></div>
+        <p>WAYNETECH OS v9.4 // HISTORICAL ARCHIVES // Access Level: ALPHA-1</p>
+        <p class="footer-warning">⚠️ CONFIDENTIAL RECORDS - AUTHORIZED EYES ONLY ⚠️</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
